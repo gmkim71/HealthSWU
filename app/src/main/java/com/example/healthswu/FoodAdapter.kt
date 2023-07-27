@@ -1,7 +1,10 @@
 package com.example.healthswu
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +19,10 @@ import androidx.recyclerview.widget.RecyclerView
 class FoodAdapter(val context: Context, private val foodlist: ArrayList<FoodData>)
     :RecyclerView.Adapter<FoodAdapter.Holder>(){
 
+
+    lateinit var dbManager: DBManager
+    lateinit var sqlitedb: SQLiteDatabase
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(context).inflate(R.layout.list_item_food1, parent, false)
         return Holder(view)
@@ -25,12 +32,31 @@ class FoodAdapter(val context: Context, private val foodlist: ArrayList<FoodData
         return foodlist.size
     }
 
+    @SuppressLint("Range")
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder?.bind(foodlist[position], context)
         holder.itemView.setOnClickListener {
-            Toast.makeText(context, "Clicked: ${foodlist.get(position).fname}", Toast.LENGTH_SHORT).show()
-            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=nbRkzpvujyM&feature=youtu.be"))
-            context.startActivity(intent)
+            var str_name = foodlist.get(position).fname
+            Toast.makeText(context, "${foodlist.get(position).fname} 레시피로 이동합니다.", Toast.LENGTH_SHORT).show()
+
+
+            dbManager= DBManager(context,"personnelDB",null,1)
+            sqlitedb=dbManager.readableDatabase
+
+            var cursor: Cursor
+            cursor = sqlitedb.rawQuery("SELECT*FROM personnel WHERE name='"+str_name+"';",null)
+
+            if(cursor.moveToNext()){
+                var str_url = cursor.getString((cursor.getColumnIndex("url"))).toString()
+
+                var intent = Intent(Intent.ACTION_VIEW, Uri.parse(str_url))
+                context.startActivity(intent)
+            }
+
+            cursor.close()
+            sqlitedb.close()
+            dbManager.close()
+
         }
     }
     inner class Holder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
