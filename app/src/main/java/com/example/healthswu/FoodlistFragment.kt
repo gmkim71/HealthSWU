@@ -1,11 +1,17 @@
 package com.example.healthswu
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
+import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +28,9 @@ private const val ARG_PARAM2 = "param2"
  */
 class FoodlistFragment : Fragment() {
     lateinit var mainActivity: MainActivity
+
+    lateinit var dbManager: DBManager
+    lateinit var sqlitdb: SQLiteDatabase
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -48,7 +57,7 @@ class FoodlistFragment : Fragment() {
         when (type) {
             1 -> cal.text = (30 * weight).toString() +"kcal"
             2 -> cal.text = (40 * weight).toString() +"kcal"
-            else -> cal.text = "50"
+            else -> cal.text = "0000"
         }
     }
 
@@ -57,14 +66,32 @@ class FoodlistFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
+    @SuppressLint("Range")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_foodlist, container, false)
-        food_DataArray.add(FoodData("food01", "그릭요거트", "150kcal"))
-        food_DataArray.add(FoodData("food02", "두부쌈밥", "200kcal"))
-        food_DataArray.add(FoodData("food03", "닭가슴살 겨자냉채", "320kcal"))
+
+        dbManager=DBManager(context,"foodDB",null,1)
+        sqlitdb=dbManager.readableDatabase
+
+
+        var cursor: Cursor
+        cursor=sqlitdb.rawQuery("SELECT*FROM personnel",null)
+
+        var num:Int = 0
+        while(cursor.moveToNext()){
+            var str_img = cursor.getString(cursor.getColumnIndex("img")).toString()
+            var str_name = cursor.getString((cursor.getColumnIndex("name"))).toString()
+            var str_kcal = cursor.getString((cursor.getColumnIndex("kcal"))).toString()
+
+            food_DataArray.add(FoodData(str_img, str_name, str_kcal))
+        }
+
+        cursor.close()
+        sqlitdb.close()
+        dbManager.close()
 
         recyclerView1 = rootView.findViewById(R.id.mRecyclerView) as RecyclerView
         recyclerView1.layoutManager = LinearLayoutManager(requireContext())
