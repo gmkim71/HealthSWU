@@ -24,7 +24,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class FoodlistFragment : Fragment() {
-    lateinit var mainActivity: MainActivity
+    lateinit var mainActivity: MainActivity2
 
     lateinit var dbManager: DBManager
     lateinit var sqlitdb: SQLiteDatabase
@@ -33,7 +33,7 @@ class FoodlistFragment : Fragment() {
         super.onAttach(context)
 
         // 2. Context를 Activity로 형변환하여 할당
-        mainActivity = context as MainActivity
+        mainActivity = context as MainActivity2
     }
 
     private var weight: Int = 50
@@ -71,7 +71,6 @@ class FoodlistFragment : Fragment() {
 
         dbManager=DBManager(context,"foodDB",null,1)
         sqlitdb=dbManager.readableDatabase
-
 
         val cursor: Cursor
         cursor=sqlitdb.rawQuery("SELECT*FROM food",null)

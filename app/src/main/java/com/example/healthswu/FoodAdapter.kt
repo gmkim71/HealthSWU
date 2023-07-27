@@ -34,14 +34,14 @@ class FoodAdapter(val context: Context, private val foodlist: ArrayList<FoodData
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bind(foodlist[position], context)
         holder.itemView.setOnClickListener {
-            var str_name = foodlist.get(position).fname
+            val str_name = foodlist.get(position).fname
             Toast.makeText(context, "${foodlist.get(position).fname} 레시피로 이동합니다.", Toast.LENGTH_SHORT).show()
 
             dbManager= DBManager(context,"foodDB",null,1)
             sqlitedb=dbManager.readableDatabase
 
             val cursor: Cursor
-            cursor = sqlitedb.rawQuery("SELECT*FROM personnel WHERE name='"+str_name+"';",null)
+            cursor = sqlitedb.rawQuery("SELECT*FROM food WHERE name='"+str_name+"';",null)
 
             if(cursor.moveToNext()){
                 val str_url = cursor.getString((cursor.getColumnIndex("url"))).toString()

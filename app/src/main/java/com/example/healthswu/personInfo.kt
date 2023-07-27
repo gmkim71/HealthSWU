@@ -1,5 +1,6 @@
 package com.example.healthswu
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -59,6 +60,10 @@ class personInfo : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Failed to save data!", Toast.LENGTH_SHORT).show()
             }
+
+            val intent = Intent(applicationContext, MainActivity2::class.java)
+            startActivity(intent)
+
         }
     }
 }
