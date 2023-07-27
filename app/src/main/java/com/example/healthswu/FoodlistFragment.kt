@@ -74,7 +74,7 @@ class FoodlistFragment : Fragment() {
 
 
         val cursor: Cursor
-        cursor=sqlitdb.rawQuery("SELECT*FROM personnel",null)
+        cursor=sqlitdb.rawQuery("SELECT*FROM food",null)
 
         while(cursor.moveToNext()){
             val str_img = cursor.getString(cursor.getColumnIndex("img")).toString()

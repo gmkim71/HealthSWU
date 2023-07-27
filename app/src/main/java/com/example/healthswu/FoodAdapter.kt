@@ -12,8 +12,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
 class FoodAdapter(val context: Context, private val foodlist: ArrayList<FoodData>)
@@ -34,22 +32,21 @@ class FoodAdapter(val context: Context, private val foodlist: ArrayList<FoodData
 
     @SuppressLint("Range")
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder?.bind(foodlist[position], context)
+        holder.bind(foodlist[position], context)
         holder.itemView.setOnClickListener {
             var str_name = foodlist.get(position).fname
             Toast.makeText(context, "${foodlist.get(position).fname} 레시피로 이동합니다.", Toast.LENGTH_SHORT).show()
 
-
-            dbManager= DBManager(context,"personnelDB",null,1)
+            dbManager= DBManager(context,"foodDB",null,1)
             sqlitedb=dbManager.readableDatabase
 
-            var cursor: Cursor
+            val cursor: Cursor
             cursor = sqlitedb.rawQuery("SELECT*FROM personnel WHERE name='"+str_name+"';",null)
 
             if(cursor.moveToNext()){
-                var str_url = cursor.getString((cursor.getColumnIndex("url"))).toString()
+                val str_url = cursor.getString((cursor.getColumnIndex("url"))).toString()
 
-                var intent = Intent(Intent.ACTION_VIEW, Uri.parse(str_url))
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(str_url))
                 context.startActivity(intent)
             }
 
