@@ -36,80 +36,65 @@ class FoodlistFragment : Fragment() {
         mainActivity = context as MainActivity2
     }
 
+
+
     private var weight: Int = 50
     private var type: Int = 1
     private val food_DataArray:ArrayList<FoodData> = ArrayList()
     lateinit var recyclerView1: RecyclerView
 
+    @SuppressLint("Range")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         arguments?.let {
         }
     }
 
+    @SuppressLint("Range")
     override fun onStart() {
-        super.onStart()
         val cal = mainActivity.findViewById<TextView>(R.id.edtCal)
         when (type) {
-            1 -> cal.text = (30 * weight).toString() +"kcal"
-            2 -> cal.text = (40 * weight).toString() +"kcal"
+            1 -> cal.text = (30 * weight).toString() + "kcal"
+            2 -> cal.text = (40 * weight).toString() + "kcal"
             else -> cal.text = "0000"
         }
-    }
+        super.onStart()
 
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
-    @SuppressLint("Range")
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val rootView = inflater.inflate(R.layout.fragment_foodlist, container, false)
-
-        dbManager=DBManager(context,"foodDB",null,1)
-        sqlitdb=dbManager.readableDatabase
-
-        val cursor: Cursor
-        cursor=sqlitdb.rawQuery("SELECT*FROM food",null)
-
-        while(cursor.moveToNext()){
-            val str_img = cursor.getString(cursor.getColumnIndex("img")).toString()
-            val str_name = cursor.getString((cursor.getColumnIndex("name"))).toString()
-            val str_kcal = cursor.getString((cursor.getColumnIndex("kcal"))).toString()
-
-            food_DataArray.add(FoodData(str_img, str_name, str_kcal))
         }
 
-        cursor.close()
-        sqlitdb.close()
-        dbManager.close()
 
-        recyclerView1 = rootView.findViewById(R.id.mRecyclerView) as RecyclerView
-        recyclerView1.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView1.adapter=FoodAdapter(requireContext(),food_DataArray)
-        // Inflate the layout for this fragment
-        return rootView
-    }
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FoodlistFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FoodlistFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+
+
+        @SuppressLint("Range")
+        override fun onCreateView(
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
+        ): View? {
+            val rootView = inflater.inflate(R.layout.fragment_foodlist, container, false)
+
+            dbManager = DBManager(context, "foodDB", null, 1)
+            sqlitdb = dbManager.readableDatabase
+
+            val cursor: Cursor
+            cursor = sqlitdb.rawQuery("SELECT*FROM food", null)
+
+            while (cursor.moveToNext()) {
+                val str_img = cursor.getString(cursor.getColumnIndex("img")).toString()
+                val str_name = cursor.getString((cursor.getColumnIndex("name"))).toString()
+                val str_kcal = cursor.getString((cursor.getColumnIndex("kcal"))).toString()
+
+                food_DataArray.add(FoodData(str_img, str_name, str_kcal))
             }
+
+            cursor.close()
+            sqlitdb.close()
+            dbManager.close()
+
+            recyclerView1 = rootView.findViewById(R.id.mRecyclerView) as RecyclerView
+            recyclerView1.layoutManager = LinearLayoutManager(requireContext())
+            recyclerView1.adapter = FoodAdapter(requireContext(), food_DataArray)
+            // Inflate the layout for this fragment
+            return rootView
+        }
     }
-}
