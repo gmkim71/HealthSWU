@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardBackgroundColor="#F2FFE4"
+    card_view:cardCornerRadius="12dp"
+    android:layout_margin="5dp"
+    card_view:cardElevation="3dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/food_img"
+            android:layout_width="180dp"
+            android:layout_height="120dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/food1" />
+
+        <TextView
+            android:id="@+id/food_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/food_img"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_toRightOf="@id/food_img"
+            android:text="Food1"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/food_Cal"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/food_Name"
+            android:layout_toEndOf="@+id/food_img"
+            android:layout_toRightOf="@+id/food_img"
+            android:layout_marginStart="30dp"
+            android:text="300kcal"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_below="@+id/food_Cal"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/food_img"
+            android:layout_toRightOf="@+id/food_img"
+            android:text="레시피 보러가기"
+            android:textColor="#08750D"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
