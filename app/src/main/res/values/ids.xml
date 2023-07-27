@@ -3,6 +3,7 @@
     <item name="saveButton" type="id">저장</item>
     <item name="detailsEditText" type="id">세부목표 입력</item>
     <item name="goalEditText" type="id">목표 (체중유지, 감량, 증량)</item>
+    <item name="weightEditText" type="id">체중(kg)</item>
     <item name="heightEditText" type="id">키(cm)</item>
     <item name="sexEditText" type="id">성별(여/남)</item>
     <item name="textView4" type="id">사용자 정보 입력</item>

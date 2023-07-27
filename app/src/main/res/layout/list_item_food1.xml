@@ -20,7 +20,7 @@
             android:layout_height="120dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            card_view:srcCompat="@drawable/ic_launcher_foreground" />
+            android:src="@drawable/food1" />
 
         <TextView
             android:id="@+id/food_Name"
@@ -30,7 +30,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginStart="30dp"
             android:layout_toRightOf="@id/food_img"
-            android:text="@string/food1"
+            android:text="Food1"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
@@ -43,7 +43,7 @@
             android:layout_toEndOf="@+id/food_img"
             android:layout_toRightOf="@+id/food_img"
             android:layout_marginStart="30dp"
-            android:text="@string/kcal"
+            android:text="300kcal"
             android:textSize="18sp" />
 
         <TextView
