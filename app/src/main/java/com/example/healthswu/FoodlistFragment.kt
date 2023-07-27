@@ -2,16 +2,13 @@ package com.example.healthswu
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -39,7 +36,6 @@ class FoodlistFragment : Fragment() {
         mainActivity = context as MainActivity
     }
 
-    private var gender: Int = 1
     private var weight: Int = 50
     private var type: Int = 1
     private val food_DataArray:ArrayList<FoodData> = ArrayList()
@@ -51,12 +47,13 @@ class FoodlistFragment : Fragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onStart() {
         super.onStart()
-        var cal = mainActivity.findViewById<TextView>(R.id.edtCal)
+        val cal = mainActivity.findViewById<TextView>(R.id.edtCal)
         when (type) {
-            1 -> cal.text = (30 * weight).toString() +"kcal"
-            2 -> cal.text = (40 * weight).toString() +"kcal"
+            1 -> cal.text = "${(30 * weight)}kcal"
+            2 -> cal.text = (40 * weight).toString() + "kcal"
             else -> cal.text = "0000"
         }
     }
@@ -77,14 +74,13 @@ class FoodlistFragment : Fragment() {
         sqlitdb=dbManager.readableDatabase
 
 
-        var cursor: Cursor
+        val cursor: Cursor
         cursor=sqlitdb.rawQuery("SELECT*FROM personnel",null)
 
-        var num:Int = 0
         while(cursor.moveToNext()){
-            var str_img = cursor.getString(cursor.getColumnIndex("img")).toString()
-            var str_name = cursor.getString((cursor.getColumnIndex("name"))).toString()
-            var str_kcal = cursor.getString((cursor.getColumnIndex("kcal"))).toString()
+            val str_img = cursor.getString(cursor.getColumnIndex("img")).toString()
+            val str_name = cursor.getString((cursor.getColumnIndex("name"))).toString()
+            val str_kcal = cursor.getString((cursor.getColumnIndex("kcal"))).toString()
 
             food_DataArray.add(FoodData(str_img, str_name, str_kcal))
         }
