@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:paddingLeft="30sp"
     android:paddingTop="20sp"
-    tools:context=".RecordActivity">
+    tools:context=".RecordInfo">
 
     <!--    운동명-->
     <LinearLayout
@@ -43,7 +43,7 @@
             android:text="운동종류"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-            />
+
     </LinearLayout>
 
     <!--    날짜-->
@@ -130,8 +130,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:backgroundTint="@color/purple_500"
         android:layout_margin="23dp"
+        android:backgroundTint="#673AB7"
         android:text="삭제" />
 
 

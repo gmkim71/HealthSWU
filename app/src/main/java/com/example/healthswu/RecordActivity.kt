@@ -1,13 +1,10 @@
-package com.example.test
+package com.example.healthswu
 
-import android.appwidget.AppWidgetManager
 import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import androidx.recyclerview.widget.RecyclerView
+import com.example.test.recordDBManager
 
 class RecordActivity : AppCompatActivity() {
     lateinit var dbManager: recordDBManager

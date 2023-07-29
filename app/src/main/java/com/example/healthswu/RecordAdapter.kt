@@ -3,7 +3,6 @@ package com.example.test
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +10,8 @@ import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.healthswu.R
+import com.example.healthswu.RecordInfo
 
 class RecordAdapter(private val context : Context) : RecyclerView.Adapter <RecordAdapter.ViewHolder>() {
 

@@ -2,6 +2,7 @@ package com.example.healthswu
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.test.RecordFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 lateinit var bottomNavigationView: BottomNavigationView
@@ -34,6 +35,14 @@ class MainActivity2 : AppCompatActivity() {
                     supportFragmentManager
                         .beginTransaction()
                         .replace(R.id.listFrame, fragment2)
+                        .commit()
+                }
+
+                R.id.navigation_3 -> {
+                    val fragment3 = RecordFragment()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.listFrame, fragment3)
                         .commit()
                 }
             }
