@@ -1,4 +1,4 @@
-package com.example.guru
+package com.example.healthswu
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModel
 
 class frag_training_rec : Fragment() {
 
@@ -29,10 +30,11 @@ class frag_training_rec : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(FragTrainingRecViewModel::class.java)
         // TODO: Use the ViewModel
-
     }
 
-
+    class FragTrainingRecViewModel : ViewModel() {
+        // TODO: Implement the ViewModel
+    }
 
 
 }
