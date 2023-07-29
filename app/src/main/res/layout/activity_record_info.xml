@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="30sp"
+    android:paddingTop="20sp"
+    tools:context=".RecordActivity">
+
+    <!--    운동명-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp">
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="운동명"
+            android:textColor="#7E72BD"/>
+        <TextView
+            android:id="@+id/tvExerciseName"
+            android:text="운동명"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!--    운동 종류-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp">
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="#7E72BD"
+            android:text="종류" />
+        <TextView
+            android:id="@+id/tvExerciseType"
+            android:text="운동종류"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+            />
+    </LinearLayout>
+
+    <!--    날짜-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp">
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="#8C80BA"
+            android:text="날짜" />
+        <TextView
+            android:id="@+id/tvExerciseDate"
+            android:text="운동 계획일"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <!--  세트당 횟수-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp">
+        <TextView
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="#7E72BD"
+            android:text="한 세트에  " />
+        <TextView
+            android:id="@+id/tvExerciseCount"
+            android:text="count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="60dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:textColor="#7E72BD"
+            android:text="회 씩 " />
+        <TextView
+            android:id="@+id/tvExerciseSet"
+            android:text="set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="60dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:textColor="#7E72BD"
+            android:text="세트 " />
+    </LinearLayout>
+
+    <!--중량-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp">
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="#7E72BD"
+            android:text="중량" />
+        <TextView
+            android:id="@+id/tvExerciseWeight"
+            android:text="weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="60dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:textColor="#7E72BD"
+            android:text="kg " />
+    </LinearLayout>
+
+    <!--    삭제버튼-->
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:backgroundTint="@color/purple_500"
+        android:layout_margin="23dp"
+        android:text="삭제" />
+
+
+</LinearLayout>

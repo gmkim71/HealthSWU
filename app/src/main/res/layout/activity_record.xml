@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="30sp"
+    android:paddingTop="20sp"
+    tools:context=".RecordActivity">
+
+    <!--    운동명-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="운동명" />
+        <EditText
+            android:id="@+id/edtExerciseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="13"
+            android:hint="어떤 운동인지 입력하세요" />
+    </LinearLayout>
+
+    <!--    운동 종류-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="종류" />
+        <Spinner
+            android:id="@+id/spinExerciseType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             />
+    </LinearLayout>
+
+<!--    날짜-->
+    <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content" >
+        <TextView
+            android:layout_width="50dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="날짜" />
+
+    </LinearLayout>
+
+    <DatePicker
+        android:id="@+id/dateExercise"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:datePickerMode="spinner"
+        android:calendarViewShown="false"
+        />
+
+    <!--  세트당 횟수-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="60dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="한 세트에 " />
+        <EditText
+            android:id="@+id/edtExerciseCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:gravity="center"
+            android:ems="2"
+            android:inputType="number" />
+        <TextView
+            android:layout_width="60dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="회 씩 " />
+        <EditText
+        android:id="@+id/edtExerciseSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="0"
+        android:gravity="center"
+        android:ems="2"
+        android:inputType="number" />
+        <TextView
+            android:layout_width="60dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="세트 " />
+    </LinearLayout>
+
+<!--중량-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="50dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="중량" />
+        <EditText
+            android:id="@+id/edtExerciseWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:gravity="center"
+            android:ems="3"
+            android:inputType="number" />
+        <TextView
+            android:layout_width="60dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="kg " />
+    </LinearLayout>
+
+<!--    저장버튼-->
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:backgroundTint="@color/purple_500"
+        android:layout_margin="23dp"
+        android:text="저장" />
+
+
+</LinearLayout>
