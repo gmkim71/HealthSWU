@@ -4,7 +4,7 @@
     <item
         android:id="@+id/navigation_1"
         android:icon="@drawable/dish"
-        android:title="식단" />
+        android:title="식단"/>
 
     <item
         android:id="@+id/navigation_2"
