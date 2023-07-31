@@ -1,4 +1,4 @@
-package com.example.test
+package com.example.healthswu
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
