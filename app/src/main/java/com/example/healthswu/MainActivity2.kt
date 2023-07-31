@@ -2,7 +2,6 @@ package com.example.healthswu
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.test.RecordFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 lateinit var bottomNavigationView: BottomNavigationView
