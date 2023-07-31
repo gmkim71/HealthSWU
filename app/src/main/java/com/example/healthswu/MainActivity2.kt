@@ -6,6 +6,7 @@ import com.example.test.RecordFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 lateinit var bottomNavigationView: BottomNavigationView
+@Suppress("DEPRECATION")
 class MainActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,10 +15,11 @@ class MainActivity2 : AppCompatActivity() {
         bottomNavigationView = findViewById(R.id.mainNav)
 
         // 바텀네비게이션 변수 실행
-        bottomNavigationView.setOnNavigationItemSelectedListener(onBottomNavItemSelectedListener)
+        bottomNavigationView.setOnNavigationItemSelectedListener(/* listener = */
+            onBottomNavItemSelectedListener)
 
         // 처음 뜨는 fragment 설정
-        bottomNavigationView.setSelectedItemId(R.id.navigation_1)
+        bottomNavigationView.setSelectedItemId(R.id.navigation_3)
     }
 
         private val onBottomNavItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener{
@@ -43,6 +45,7 @@ class MainActivity2 : AppCompatActivity() {
                     supportFragmentManager
                         .beginTransaction()
                         .replace(R.id.listFrame, fragment3)
+                        .addToBackStack(null)
                         .commit()
                 }
             }
